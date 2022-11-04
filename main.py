@@ -292,8 +292,11 @@ class parrotRTSPObjectDetection :
 
 if __name__ == "__main__" :
     rtspUrl = "rtsp://192.168.53.1/live"
-    drone = parrotRTSPObjectDetection(rtspLink=rtspUrl)
-    drone.SSD_RTSP_OBJECT_DETECTION()
-   # drone.YOLO_RTSP_OBJECT_DETECTION()
-    
+    detection_model = "SSD"
 
+    if detection_model == "SSD" :
+        drone = parrotRTSPObjectDetection(rtspLink=rtspUrl)
+        drone.SSD_RTSP_OBJECT_DETECTION()
+    elif detection_model == "YOLO" :
+        drone = parrotRTSPObjectDetection(rtspLink=rtspUrl)
+        drone.YOLO_RTSP_OBJECT_DETECTION()
